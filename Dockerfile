@@ -5,10 +5,9 @@ ENV script_url "https://raw.githubusercontent.com/Dovry/ansible-install-script/m
 
 # Install required packages
 RUN yum makecache fast \
-  && yum -y install wget
-    
+  && yum -y install wget \
 # Install ansible
-RUN wget $script_url \
+  && wget $script_url \
   && chmod +x ansible_convenience_script.sh \
   && sh ./ansible_convenience_script.sh -p \
   && rm -f ansible_convenience_script.sh \
@@ -16,3 +15,4 @@ RUN wget $script_url \
 
 VOLUME ["/sys/fs/cgroup"]
 CMD ["/usr/lib/systemd/systemd"]
+HEALTHCHECK CMD ansible --version
