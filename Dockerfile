@@ -7,10 +7,7 @@ ENV script_url "https://raw.githubusercontent.com/Dovry/ansible-install-script/m
 RUN yum makecache fast \
   && yum -y install wget \
 # Install ansible
-  && wget --no-check-certificate $script_url \
-  && chmod +x ansible_convenience_script.sh \
-  && sh ./ansible_convenience_script.sh -p \
-  && rm -f ansible_convenience_script.sh \
+  && wget --no-check-certificate -O - $script_url | bash -s -- -p \
   && yum clean all
 
 VOLUME ["/sys/fs/cgroup"]
