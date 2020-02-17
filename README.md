@@ -14,7 +14,7 @@ docker run --rm -d -it \
 -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
 -v /run/lock:/run/lock:ro \
 -v /etc/ansible:/etc/ansible:ro \
-dovry/docker_centos7_ansible
+dovry/docker_centos7_ansible:latest
 ```
 
 And then either exec into the container and start hacking away with:
