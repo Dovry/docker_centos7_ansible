@@ -3,6 +3,11 @@ LABEL maintainer="Dovry"
 ENV container=docker
 ENV script_url "https://raw.githubusercontent.com/Dovry/ansible-install-script/master/ansible_convenience_script.sh"
 
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 # Install required packages
 RUN yum makecache fast \
   && yum -y install wget \
