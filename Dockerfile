@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL maintainer="Dovry"
 ENV container=docker
-ENV script_url "https://raw.githubusercontent.com/Dovry/ansible-install-script/master/ansible_convenience_script.sh"
+ENV script_url "https://raw.githubusercontent.com/dovry/ansible-install-script/master/ansible_convenience_script.sh"
 
 # Install required packages
 RUN yum makecache fast \
